@@ -1,0 +1,26 @@
+using UnityEngine;
+
+public class TrainingTarget : MonoBehaviour
+{
+    Vector3 startPos;
+
+    void Start()
+    {
+        startPos = transform.position;
+    }
+
+    private void OnMouseDown()
+    {
+        // àÍíUè¡Ç∑
+        gameObject.SetActive(false);
+
+        // 1ïbå„Ç…ïúäà
+        Invoke("Respawn", 1f);
+    }
+
+    void Respawn()
+    {
+        transform.position = startPos;
+        gameObject.SetActive(true);
+    }
+}
